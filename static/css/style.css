@@ -1,0 +1,11 @@
+body.no-background{
+    background: none;
+    color: darkslateblue;
+}
+
+a{
+    font-weight: bold;
+    color: blue;
+    text-decoration: none;
+}
+

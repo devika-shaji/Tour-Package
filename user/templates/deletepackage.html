@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body_class %}no-background{% endblock %}
+{% block content %}
+<h2>DELETE PACKAGE</h2>
+<p>{{ package.title }} - {{ package.destination }}</p>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">DELETE</button>&nbsp;
+    <a href="{% url 'viewpackage' %}">CANCEL</a>
+</form>
+
+{% endblock %}

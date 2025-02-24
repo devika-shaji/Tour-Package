@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body_class %}no-background{% endblock %}
+{% block content %}
+<h2>{% if form.instance.package_id %}EDIT PACKAGE {% else %}CREATE A NEW PACKAGE{% endif %}</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">SAVE</button>&nbsp;
+    <a href="{% url 'viewpackage' %}">CANCEL</a>
+</form>
+
+{% endblock %}

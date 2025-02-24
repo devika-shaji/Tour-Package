@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body_class %}no-background{% endblock %}
+{% block content %}
+<h2>PENDING PACKAGES</h2>
+<ul>
+    {% for package in packages %}
+        <li>
+            {{ package.title }}-{{ package.destination }}<br>
+            <a href="{% url 'approvepackage' package.id %}">APPROVE</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

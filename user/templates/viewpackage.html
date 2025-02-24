@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body_class %}no-background{% endblock %}
+{% block content %}
+<h2>AVAILABLE PACKAGES</h2>
+<ul>
+    {% for package in packages %}
+        <li>
+            <strong><img src="{{package.image.url}}" alt="{{package.destination}}" width="300"></strong> <br>
+            <strong>{{ package.title }} - {{ package.destination }}</strong><br>
+            <strong>PRICE: {{ package.price }}</strong> <br>
+            <strong>EXPIRY DATE: {{ package.expiry }}</strong> <br>
+            &nbsp;&nbsp;
+
+            {% if user.role == 'user' %}
+                <a href="{% url 'bookpackage' package.id %}">BOOK NOW</a><br><br>  
+            {% endif %}
+
+            {% if user.role == 'vendor' %}
+                <a href="{% url 'editpackage' package.id %}">EDIT</a>&nbsp;
+                <a href="{% url 'deletepackage' package.id %}">DELETE</a><br><br>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>NO AVAILABLE PACKAGES</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+.lg{
+     color:blue;
+     font-weight: bold;
+     
+}
+
+h2{
+    color: blue;
+}
+
+[type="submit"]{
+    color: dodgerblue;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10%;
+    font-size: 15px;
+}

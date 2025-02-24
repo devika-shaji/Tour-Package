@@ -1,0 +1,35 @@
+body{
+    background-color:beige;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image:url("../images/tourhome.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+
+}
+
+h1{
+    color:darkblue;
+    font-weight: bold;
+}
+
+nav{
+    background-color:lightskyblue;
+    padding: 10px;
+}
+
+nav a{
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p.pp{
+    color:midnightblue;
+    font-size: 20px;
+    font-style: italic;
+}

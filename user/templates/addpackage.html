@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body_class %}no-background{% endblock %}
+{% block content %}
+<h2>CREATE PACKAGES</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">CREATE</button>
+</form>
+{% endblock %}

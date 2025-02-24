@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body_class %}no-background{% endblock %}
+{% block content %}
+<h2>BOOKED PACKAGE: {{ package.title }}</h2>
+<strong><p>DESTINATION: {{ package.destination }}</p></strong>
+<strong><p>PRICE: {{ package.price }}</p></strong>
+
+<form method="POST">
+    {% csrf_token %}
+    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_PykvSullDf3eVN" async> </script>
+</form><br>
+
+<!-- <form method="POST">
+    {% csrf_token %}
+    <button type="submit"> CONFIRM BOOKING</button>
+</form>  -->
+
+{% endblock %}
+
