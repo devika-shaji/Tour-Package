@@ -7,8 +7,8 @@ from django.utils import timezone
 class Custuser(AbstractUser):
     ROLE_CHOICES=(
         ('user','User'),
-        ('vendor','Vendor'),
-        ('admin','Admin'),
+        ('vendor','Vendor')
+        # ('admin','Admin'),
     )
     role=models.CharField(max_length=100,choices=ROLE_CHOICES,default='user')
 

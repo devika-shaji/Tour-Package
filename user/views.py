@@ -46,9 +46,11 @@ def viewpackage(request):
 def bookpackage(request,package_id):
     package=get_object_or_404(Packages,id=package_id,approved=True)
     if request.method=='POST':
-        booking=Booking(user=request.user,package=package)
-        booking.save()
-        return redirect('viewpackage')
+        payment_id=request.POST.get("pl_PykvSullDf3eVN")
+        if payment_id:
+            booking=Booking(user=request.user,package=package)
+            booking.save()
+            return redirect('viewpackage')
     return render(request,'bookpackage.html',{'package':package})
 
 
@@ -96,7 +98,7 @@ def deletepackage(request,package_id):
     return render(request,'deletepackage.html',{'package':package})
 
 
-@user_passes_test(lambda u: u.is_authenticated and u.role=='admin')
+# @user_passes_test(lambda u: u.is_authenticated and u.role=='admin')
 def approvepackage(request,package_id):
     package=get_object_or_404(Packages,id=package_id,approved=False)
     package.approved=True
@@ -104,15 +106,13 @@ def approvepackage(request,package_id):
     return redirect('pendingpackage')
 
 
-@user_passes_test(lambda u: u.is_authenticated and u.role=='admin')
+# @user_passes_test(lambda u: u.is_authenticated and u.role=='admin')
 def pendingpackage(request):
     package=Packages.objects.filter(approved=False)
     return render(request,'pendingpackage.html',{'packages':package})
 
 
-def pendingpackage(request):
-    package=Packages.objects.filter(approved=False)
-    return render(request,'pendingpackage.html',{'packages':package})
+
 
 
 
