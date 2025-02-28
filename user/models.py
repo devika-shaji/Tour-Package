@@ -48,3 +48,11 @@ class Booking(models.Model):
          return f"Booking by {self.user.username} for {self.package.title}"
 
 
+class Vendor(models.Model):
+    user=models.ForeignKey(Custuser,on_delete=models.CASCADE)
+    company_name=models.CharField(max_length=100)
+    contact_no=models.CharField(max_length=50)
+    address=models.TextField()
+
+    def __str__(self):
+        return self.company_name

@@ -4,6 +4,7 @@ from .import views as v
 urlpatterns=[
     path('',v.home,name='home'),
     path('register/',v.register,name='register'),
+    path('vendorregister/',v.vendorregister,name='vendorregister'),
     path('userlogin/',v.userlogin,name='userlogin'),
     path('userlogout/',v.userlogout,name='userlogout'),
     

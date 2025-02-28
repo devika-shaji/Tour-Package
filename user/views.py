@@ -18,6 +18,17 @@ def register(request):
     else:
         form=CustuserRegistrationForm()
     return render(request,'register.html',{'form':form})
+
+
+def vendorregister(request):
+    if request.method=='POST':
+        form=VendorRegistrationForm(request.POST)
+        if form.is_valid():
+            user=form.save()
+            return redirect('userlogin')
+    else:
+        form=VendorRegistrationForm()
+    return render(request,'vendorregister.html',{'form':form})
             
     
 def userlogin(request):
